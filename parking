@@ -1,0 +1,76 @@
+<!DOCTYPE html> <!-- HTML5であることを宣言 -->
+<html lang="ja"> <!-- 日本語ページ -->
+<head>
+    <meta charset="UTF-8"> <!-- 文字コード（日本語対応） -->
+    <title>ログイン</title> <!-- ブラウザのタブに表示されるタイトル -->
+
+    <style>
+        body {
+            margin: 0; /* 余白をなくす */
+            height: 100vh; /* 画面の高さを100%に */
+            font-family: Arial, sans-serif; /* フォント指定 */
+
+            /* 背景画像を設定 */
+            background: url("IMG_0618.JPG") no-repeat center center/cover;
+            /* no-repeat：繰り返さない */
+            /* center center：中央配置 */
+            /* cover：画面いっぱいに表示 */
+
+            display: flex; /* 中央配置のための設定 */
+            justify-content: center; /* 横方向中央 */
+            align-items: center; /* 縦方向中央 */
+        }
+
+        .login-box {
+            background: rgba(255, 255, 255, 0.85); /* 半透明の白背景 */
+            padding: 30px; /* 内側の余白 */
+            border-radius: 10px; /* 角を丸くする */
+            width: 320px; /* 横幅 */
+            text-align: center; /* 文字中央揃え */
+            box-shadow: 0 0 15px rgba(0,0,0,0.3); /* 影をつける */
+        }
+
+        h1 {
+            font-size: 20px; /* タイトル文字サイズ */
+            margin-bottom: 20px; /* 下に余白 */
+        }
+
+        input {
+            width: 100%; /* 横幅いっぱい */
+            padding: 10px; /* 内側余白 */
+            margin: 8px 0; /* 上下の間隔 */
+            border: 1px solid #ccc; /* 枠線 */
+            border-radius: 5px; /* 角丸 */
+        }
+
+        button {
+            width: 100%; /* 横幅いっぱい */
+            padding: 10px; /* 内側余白 */
+            margin-top: 10px; /* 上に余白 */
+            background-color: #007BFF; /* 背景色（青） */
+            color: white; /* 文字色 */
+            border: none; /* 枠線なし */
+            border-radius: 5px; /* 角丸 */
+            cursor: pointer; /* マウスを乗せると指マーク */
+        }
+
+        button:hover {
+            background-color: #0056b3; /* ホバー時に色を濃くする */
+        }
+    </style>
+</head>
+
+<body> <!-- 画面に表示される内容 -->
+
+<div class="login-box"> <!-- ログインボックス -->
+    <h1>グランヒルズ新百合ヶ丘駐車場予約</h1> <!-- タイトル -->
+    
+    <form> <!-- 入力フォーム -->
+        <input type="text" placeholder="ID" required> <!-- ID入力欄 -->
+        <input type="password" placeholder="パスワード" required> <!-- パスワード入力欄 -->
+        <button type="submit">ログイン</button> <!-- ログインボタン -->
+    </form>
+</div>
+
+</body>
+</html>
