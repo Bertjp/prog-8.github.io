@@ -1,79 +1,25 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <!-- ★スマホ対応に必須 -->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<h2>ログイン</h2>
 
-    <title>Progate</title>
+<input id="room" placeholder="部屋番号">
+<input id="pass" type="password" placeholder="パスワード">
+<button onclick="login()">ログイン</button>
 
-    <style>
-      body {
-        margin: 0;
-        background: url("IMG_1381.JPG") no-repeat center center/cover;
-        color: white;
-        text-align: center;
-        font-family: sans-serif;
-
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        height: 100vh; /* ← 画面中央に */
-      }
-
-      .title {
-        margin-top: 60px;
-        font-size: 22px;
-        padding: 0 10px;
-      }
-
-      .login-box {
-        margin: 30px auto;
-        padding: 20px;
-        width: 90%;
-        max-width: 350px;
-        background: rgba(0, 0, 0, 0.6);
-        border-radius: 10px;
-      }
-
-
-      input {
-        width: 100%;
-        padding: 12px;
-        margin: 10px 0;
-        border: none;
-        border-radius: 5px;
-        font-size: 16px; /* ← スマホで重要 */
-        box-sizing: border-box;
-      }
-
-      button {
-        width: 100%;
-        padding: 12px;
-        background: #4CAF50;
-        color: white;
-        border: none;
-        border-radius: 5px;
-        font-size: 16px;
-        cursor: pointer;
-        box-sizing: border-box;
-      }
-
-      button:hover {
-        background: #45a049;
-      }
-    </style>
-  </head>
-
-  <body>
-    <h1 class="title">グランヒルズ新百合ヶ丘駐車場予約</h1>
-
-    <div class="login-box">
-      <h2>ログイン</h2>
-      <input type="text" placeholder="ユーザー名">
-      <input type="password" placeholder="パスワード">
-      <button>ログイン</button>
-    </div>
-  </body>
-</html>
+<script>
+function login() {
+  fetch('/login', {
+    method:'POST',
+    headers:{'Content-Type':'application/json'},
+    body: JSON.stringify({
+      room_number: document.getElementById('room').value,
+      password: document.getElementById('pass').value
+    })
+  })
+  .then(res=>res.text())
+  .then(msg=>{
+    alert(msg);
+    if(msg==="ログイン成功"){
+      location.href = "/";
+    }
+  });
+}
+</script>
